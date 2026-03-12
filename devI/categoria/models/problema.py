@@ -8,10 +8,11 @@ from ..validators import *
 
 from categoria.enumerations import Nivel
 from ..validators.palavras_proibidas import PalavrasProibidas
+from ..validators.memory_validator import validar_tamanho_memoria
 
 
 class Problema(models.Model):
-    codigo = models.IntegerField(unique=True,validators=[MinValueValidator(1000),PalavrasProibidas(lista_proibida=['teste','admin'],mensage='o campo contem palavras que foram proibidas')],
+    codigo = models.IntegerField(unique=True,validators=[MinValueValidator(1000),PalavrasProibidas(lista_proibida=['teste','admin'],mensagem='o campo contem palavras que foram proibidas')],
                                                          help_text='Código do problema',)
 
     titulo = models.CharField(max_length = 100,
@@ -54,7 +55,7 @@ class Problema(models.Model):
                                          verbose_name='tempo execucao',
                                          help_text='Insira o tempo maximo de execucao')
 
-    memoria_maxima = models.IntegerField(validators=[MinValueValidator(10),MaxValueValidator(256), memory_validator],
+    memoria_maxima = models.IntegerField(validators=[MinValueValidator(10),MaxValueValidator(256), validar_tamanho_memoria],
                                                              verbose_name='memoria maxima',
                                                              help_text='Insira a quantidade em MB de memoria maxima a ser utilizada')
     resolvidos = models.IntegerField(validators=[MinValueValidator(0)],

@@ -1,1 +1,1 @@
-from .models import *
+# Models são carregados automaticamente pelo Django
