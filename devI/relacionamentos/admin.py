@@ -9,6 +9,10 @@ from .models import Reportagem
 from .models import Aluno
 from .models import Disciplina  
 from .models import Matricula
+from .models import Esporte
+from .models import Cidade
+from .models import Pessoa_csv
+from .models import Time_csv
 
 admin.site.register(Pessoa)
 admin.site.register(Passaporte)
@@ -19,3 +23,7 @@ admin.site.register(Reportagem)
 admin.site.register(Aluno)
 admin.site.register(Disciplina)
 admin.site.register(Matricula)
+admin.site.register(Esporte)
+admin.site.register(Cidade)
+admin.site.register(Time_csv)
+admin.site.register(Pessoa_csv)

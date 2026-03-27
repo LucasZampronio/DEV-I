@@ -8,3 +8,7 @@ from .reportagem import *
 from .disciplina import *
 from .aluno import *
 from .matricula import *
+from .Esporte_csv import *
+from .Cidade_csv import * 
+from .Pessoa_csv import *
+from .Time_csv import *
