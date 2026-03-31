@@ -6,7 +6,7 @@ from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator, MinValueValidator, MaxValueValidator
 from .base_model import BaseModel
 
-class Pessoa(BaseModel):
+class Pessoaa(BaseModel):
     nome = models.CharField(max_length=40, validators=[MinLengthValidator(2)], verbose_name='Nome Completo', help_text='Insira o nome completo da pessoa')
     sexo = models.CharField(max_length=1, validators=[MinLengthValidator(1)],choices=Sexo , help_text='Insira o sexo da pessoa (M/F)')
     idade = models.IntegerField(verbose_name='Idade', help_text='Insira a idade da pessoa',validators=[MinValueValidator(0), MaxValueValidator(100)])

@@ -11,8 +11,8 @@ from .models import Disciplina
 from .models import Matricula
 from .models import Esporte
 from .models import Cidade
-from .models import Pessoa_csv
-from .models import Time_csv
+from .models import Pessoaa
+from .models import Time
 
 admin.site.register(Pessoa)
 admin.site.register(Passaporte)
@@ -25,5 +25,5 @@ admin.site.register(Disciplina)
 admin.site.register(Matricula)
 admin.site.register(Esporte)
 admin.site.register(Cidade)
-admin.site.register(Time_csv)
-admin.site.register(Pessoa_csv)
+admin.site.register(Time)
+admin.site.register(Pessoaa)
