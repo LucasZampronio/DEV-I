@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>ID</h1>
+{{matricula.id}}
+{% endblock title %}    
+
+{% block content %}
+<div class="content">
+    <div>
+        <strong>Aluno</strong><p>{{matricula.aluno}}</p>
+        <strong>Nota</strong><p>{{matricula.nota}}</p>
+        <strong>Frequencia</strong><p>{{matricula.frequencia}}</p>
+        <strong>Status</strong><p>{{matricula.status}}</p>
+    </div>
+        <a class="btn btn-outline-secondary btn-lg" role='button' title='Detalhar' href="{% url 'relacionamentos:funcao_course_list' %}">
+            Voltar
+        </a>
+</div>
+
+{% endblock content %}

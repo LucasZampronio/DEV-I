@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{pessoa.nome}}
+{% endblock title %}    
+
+{% block content %}
+<div class="content">
+    <div>
+        <strong>Birthdate</strong><p>{{pessoa.data_nascimento|date:"d/m/y"}}</p>
+        <strong>CPF</strong><p>{{pessoa.cpf}}</p>
+        
+    </div>
+        <a class="btn btn-outline-secondary btn-lg" role='button' title='Detalhar' href="{% url 'relacionamentos:funcao_person_list' %}">
+            Voltar
+        </a>
+</div>
+
+{% endblock content %}
