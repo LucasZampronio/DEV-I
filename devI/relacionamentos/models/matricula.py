@@ -29,7 +29,7 @@ class Matricula(BaseModel):
         default=Status.MATRICULADO,
         choices=Status
     )
-    aluno = models.ForeignKey(Aluno, on_delete=models.PROTECT, help_text='Selecione o aluno para a matrícula')
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, help_text='Selecione o aluno para a matrícula')
 
     disciplina = models.ForeignKey(Disciplina, on_delete=models.PROTECT, help_text='Selecione a disciplina para a matrícula')
 
