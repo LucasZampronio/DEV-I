@@ -1,4 +1,5 @@
 from ..models import Pessoa
+from ..forms.person import PersonForm
 from django.shortcuts import render,get_object_or_404, redirect
 import random
 
@@ -48,3 +49,18 @@ def delete(request,id):
         contexto = {}
         print(ex)
         return render(request,'person/list.html',contexto)
+    
+def create(request):
+    if request.method == 'GET':
+        form = PersonForm()
+
+    elif request.method == 'POST':
+        form = PersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('relacionamentos:funcao_person_list')
+
+        contexto = {
+            "formulario": form }
+        
+        return render(request, "person/create.html",contexto)
