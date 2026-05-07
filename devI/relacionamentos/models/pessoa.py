@@ -21,6 +21,9 @@ class Pessoa(BaseModel):
         hoje = date.today()
         if self.data_nascimento > hoje:
             raise ValidationError({'data_nascimento': 'A data de nascimento não pode ser no futuro.'})
+        
+    def create(self):
+        pass
     
     def __str__(self):
         return self.nome

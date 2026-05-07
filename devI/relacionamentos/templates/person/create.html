@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>Cadastrar Pessoa</h1>
+
+{% endblock title%}
+
+{%block content%}
+
+<form id="person" method="post" action="{% url 'relacionamentos:funcao_person_create' %}">
+    {{ formulario.as_p }}
+
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-outline-success btn-lg" form="person"> Cadastrar</button>
+    <button type="reset" class="btn btn-outline-danger btn-lg" form="person"> Limpar</button>
+    <br>
+    <a class="btn btn-outline-light btn-lg" role='button' href="{% url 'relacionamentos:funcao_person_list' %}">
+
+        <i class="bi bi-arrow-left"></i>
+        Voltar
+    </a>
+</form>
+
+{% endblock content %}
