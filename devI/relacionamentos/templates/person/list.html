@@ -10,6 +10,10 @@
 
 {% block content %}
 
+            <a  role='button' class="btn btn-outline-success" href="{% url 'relacionamentos:funcao_person_create' %}">
+            <i class="bi bi-floppy"> Cadastrar Pessoa</i>
+            </a>
+
     {% if pessoas %}
         <table class="table table-hover">
             <thead>
@@ -41,9 +45,13 @@
                              <a class="btn btn-outline-warning btn-lg" role='button' title='Gerar CPF usando funcoes' href="{% url 'relacionamentos:funcao_person_generate_cpf' pessoa.id %}">
                                 <i class="bi bi-arrow-repeat"></i>
                             </a>
+                            <a class="btn btn-outline-info btn-lg" role='button' title='Editar' href="{% url 'relacionamentos:funcao_person_update' pessoa.id %}">
+                                <i class="bi bi-floppy"></i>
+                            </a>
                             <a class="btn btn-outline-danger btn-lg" role='button' title='Deletar' href="{% url 'relacionamentos:funcao_person_delete' pessoa.id %}">
                                 <i class="bi bi-trash3"></i>
                             </a>
+                            
                         </td>   
                     </tr>
                 {% endfor %}

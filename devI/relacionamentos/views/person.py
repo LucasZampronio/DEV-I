@@ -51,16 +51,40 @@ def delete(request,id):
         return render(request,'person/list.html',contexto)
     
 def create(request):
+
     if request.method == 'GET':
         form = PersonForm()
-
+        contexto = {
+            "formulario": form
+        }
+        return render(request, "person/create.html",contexto)
+    
     elif request.method == 'POST':
         form = PersonForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('relacionamentos:funcao_person_list')
 
+        else:
+            contexto = {
+                "formulario": form
+            }
+            return render(request, "person/create.html",contexto)
+
+def update(request, id):
+    person = get_object_or_404(Pessoa, id=id)
+    if request.method == 'GET':
+        formulario = PersonForm(instance=person)
+    elif request.method == 'POST':
+        formulario = PersonForm(request.POST,instance=person)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('relacionamentos:funcao_person_list')
+
         contexto = {
-            "formulario": form }
-        
-        return render(request, "person/create.html",contexto)
+            "formulario": formulario,
+            "pessoa": person
+        }
+        return render(request, "person/update.html",contexto)
+
+    
