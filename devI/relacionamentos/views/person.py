@@ -75,6 +75,11 @@ def update(request, id):
     person = get_object_or_404(Pessoa, id=id)
     if request.method == 'GET':
         formulario = PersonForm(instance=person)
+        contexto = {
+            "formulario": formulario,
+            "pessoa": person,
+        }
+        return render(request, "person/update.html", contexto)
     elif request.method == 'POST':
         formulario = PersonForm(request.POST,instance=person)
         if formulario.is_valid():

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if reporteres %}
+        Lista de reporteres
+    {% else %}
+        Nenhuma reporter Cadastrada
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+
+            <a  role='button' class="btn btn-outline-success" href="{% url 'relacionamentos:classe_reporter_create' %}">
+            <i class="bi bi-floppy"> Cadastrar Reporter</i>
+            </a>
+
+    {% if reporteres %}
+        <table class="table table-hover">
+            <thead>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                {% for reporter in reporteres %}
+                    <tr>
+                        <td>
+                            {{reporter.id}}
+                        </td>
+                        <td>
+                            {{reporter.nome}}
+                        </td>
+                        <td>
+                            {{reporter.data_nascimento}}
+                        </td>
+                        <td>
+                            {{reporter.cpf}}
+                        </td>
+                        <td>
+                            {{reporter.email}}
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-secondary btn-lg" role='button' title='Detalhar' href="{% url 'relacionamentos:classe_reporter_read' reporter.id %}">
+                                <i class="bi bi-card-list"></i>
+                            </a>
+                             <a class="btn btn-outline-warning btn-lg" role='button' title='Gerar CPF usando funcoes' href="{% url 'relacionamentos:classe_reporter_generate_cpf' reporter.id %}">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </a>
+                             <a class="btn btn-outline-info btn-lg" role='button' title='Editar' href="{% url 'relacionamentos:classe_reporter_update' reporter.id %}">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btn btn-outline-danger btn-lg" role='button' title='Deletar' href="{% url 'relacionamentos:classe_reporter_delete' reporter.id %}">
+                                <i class="bi bi-trash3"></i>
+                            </a>
+                            
+                        </td>   
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock content %}
+

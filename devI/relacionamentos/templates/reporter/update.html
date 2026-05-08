@@ -2,10 +2,10 @@
 
 {% block title %}
 
-    <h1>Editar pessoa</h1>
+    <h1>Editar Reporter</h1>
 {% endblock title %}
     {% block content %}
-        <form id="pessoa" method="post" action="{% url 'relacionamentos:funcao_person_update' pessoa.id %}">
+        <form id="reporter" method="post" action="{% url 'relacionamentos:classe_reporter_update' reporter.id %}">
             {% csrf_token %}
             {{formulario.as_p}}
             <button type="submit" class="btn btn-outline-info btn-lg"> Editar</button>

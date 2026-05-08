@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+
 app_name = 'relacionamentos'
 
 urlpatterns = [
@@ -11,5 +12,12 @@ urlpatterns = [
     path('person/funcao/update/<int:id>', person.update, name='funcao_person_update'),
     path('course/funcao/list',course.list, name='funcao_course_list'),
     path('person/funcao/gerar_cpf/<int:id>/',person.generate_cpf,name='funcao_person_generate_cpf'),
-    path('person/funcao/delete/<int:id>',person.delete,name='funcao_person_delete')
+    path('person/funcao/delete/<int:id>',person.delete,name='funcao_person_delete'),
+
+    path('reporter/classe/list', ReporterListView.as_view(), name='classe_reporter_list'),
+    path('reporter/classe/read/<int:id>', ReporterReadView.as_view(), name='classe_reporter_read'),
+    path('reporter/classe/create/', ReporterCreateView.as_view(), name='classe_reporter_create'),
+    path('reporter/classe/delete/<int:id>', ReporterDeleteView.as_view(), name='classe_reporter_delete'),   
+    path('reporter/classe/generate_cpf/<int:id>/', ReporterGenerateCpfView.as_view(), name='classe_reporter_generate_cpf'),
+    path('reporter/classe/update/<int:id>/', ReporterUpdateView.as_view(), name='classe_reporter_update'),
 ]   
