@@ -20,4 +20,10 @@ urlpatterns = [
     path('reporter/classe/delete/<int:id>', ReporterDeleteView.as_view(), name='classe_reporter_delete'),   
     path('reporter/classe/generate_cpf/<int:id>/', ReporterGenerateCpfView.as_view(), name='classe_reporter_generate_cpf'),
     path('reporter/classe/update/<int:id>/', ReporterUpdateView.as_view(), name='classe_reporter_update'),
+
+    path('passaporte/classe_generica/list', PassaporteListGenericView.as_view(), name='classe_generica_passaporte_list'),
+    path('passaporte/classe_generica/read/<int:pk>', PassaporteReadGenericView.as_view(),name='classe_generica_passaporte_read'),
+    path('Passaporte/classe_generica/delete/<int:pk>', PassaporteDeleteGenericView.as_view(), name='classe_generica_passaporte_delete'),
+    path('Passaporte/classe_generica/create', PassaporteCreateGenericView.as_view(), name='classe_generica_passaporte_create'),
+    path('Passaporte/classe_generica/update/<int:pk>', PassaporteUpdateGenericView.as_view(), name='classe_generica_passaporte_update'),
 ]   

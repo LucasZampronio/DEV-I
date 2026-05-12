@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{passaporte.pessoa}}
+{% endblock title %}    
+
+{% block content %}
+<div class="content">
+    <div>
+        <strong>Vencimento</strong><p>{{passaporte.vencimento|date:"d/m/y"}}</p>
+        <strong>emissao</strong><p>{{passaporte.emissao}}</p>
+        <strong>numero</strong><p>{{passaporte.numero}}</p>
+    </div>
+        <a class="btn btn-outline-secondary btn-lg" role='button' title='Detalhar' href="{% url 'relacionamentos:classe_generica_passaporte_list' %}">
+            Voltar
+        </a>
+</div>
+
+{% endblock content %}

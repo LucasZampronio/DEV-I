@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if passaportes %}
+        Lista de passaportes
+    {% else %}
+        Nenhum passaporte Cadastrado
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+
+            <a  role='button' class="btn btn-outline-success" href="{% url 'relacionamentos:classe_generica_passaporte_create' %}">
+            <i class="bi bi-floppy"> Cadastrar passaporte</i>
+            </a>
+
+    {% if passaportes %}
+        <table class="table table-hover">
+            <thead>
+                <th>Numero</th>
+                <th>Emissao</th>
+                <th>Vencimento</th>
+                <th>Pessoa</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                {% for passaporte in passaportes %}
+                    <tr>
+                        <td>
+                            {{passaporte.numero}}
+                        </td>
+                        <td>
+                            {{passaporte.emissao|date:"d / m / y"}}
+                        </td>
+                        <td>
+                            {{passaporte.vencimento|date:"d / m / y"}}
+                        </td>
+                        <td>
+                            {{passaporte.pessoa}}
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-secondary btn-lg" role='button' title='Detalhar' href="{% url 'relacionamentos:classe_generica_passaporte_read' passaporte.pk %}">
+                                <i class="bi bi-card-list"></i>
+                            </a>
+                            <a class="btn btn-outline-info btn-lg" role='button' href="{% url 'relacionamentos:classe_generica_passaporte_update' passaporte.pk %}" title='Editar'>
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btn btn-outline-danger btn-lg" role='button' href="{% url 'relacionamentos:classe_generica_passaporte_delete' passaporte.pk %}" title='Deletar' >
+                                <i class="bi bi-trash3"></i>
+                            </a>
+                            
+                        </td>   
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock content %}
+
