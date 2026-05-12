@@ -32,4 +32,13 @@ urlpatterns = [
         ReporterDeleteView.as_view(),
         name="classe_reporter_delete",
     ),
+
+    # passaporte
+
+    # CLASSE GENÉRICA
+    path("passaporte/classe_generica/list",PassportListGenericView.as_view(), name= "classe_generica_passaporte_list"),
+    path("passaporte/classe_generica/create",PassportCreateGenericView.as_view(), name= "classe_generica_passaporte_create"),
+    path("passaporte/classe_generica/read/<int:pk>",PassportReadGenericView.as_view(), name= "classe_generica_passaporte_read"),
+    path("passaporte/classe_generica/delete/<int:pk>",PassportDeleteGenericView.as_view(), name= "classe_generica_passaporte_delete"),
+    
 ]
