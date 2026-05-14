@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{passaporte.nome}}
+{% endblock title %}    
+
+{% block content %}
+<div class="content">
+    <div>
+        <strong>Número</strong><p>{{passaporte.numero}}</p>
+        <strong>Portador</strong><p>{{passaporte.pessoa.nome}}</p>
+        <div>
+            <h3>Esta ação é irreversível! Tem certeza que deseja deletar o dado acima?</h3>
+        </div>
+        <form  id='passaporte' action="{% url 'relacionamentos:classe_generica_passaporte_delete' passaporte.pk %}" method="post">
+            {% csrf_token %}
+            <input name="passaporte_pk" type='hidden' id='passaporte_pk' value="{{ passaporte.pk }}">
+            <button type="submit" class="btn btn-outline-danger bi bi-trash3"  href="{% url 'relacionamentos:classe_generica_passaporte_list' %}"> Sim, deletar</button>
+            <br>
+            <a class="bi bi-arrow" role='button' title='Voltar' href="{% url 'relacionamentos:classe_generica_passaporte_list' %}">
+            Cancelar
+            </a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

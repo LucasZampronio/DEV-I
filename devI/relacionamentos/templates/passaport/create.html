@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+<h1>Cadastrar Passaporte</h1>
+
+{% endblock title%}
+
+{%block content%}
+
+<form id="passaporte" method="post" action="{% url 'relacionamentos:classe_generica_passaporte_create' %}">
+    {{ form.as_p }}
+
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-outline-success btn-lg" form="passaporte"> Cadastrar</button>
+    <button type="reset" class="btn btn-outline-danger btn-lg" form="passaporte"> Limpar</button>
+    <br>
+    <a class="btn btn-outline-light btn-lg" role='button' href="{% url 'relacionamentos:classe_generica_passaporte_list' %}">
+
+        <i class="bi bi-arrow-left"></i>
+        Voltar
+    </a>
+</form>
+
+{% endblock content %}

@@ -68,6 +68,26 @@ def create(request):
         if form.is_valid():
             form.save()
             return redirect("relacionamentos:funcao_person_list")
-        
+
         else:
             raise ValueError("DADOS INVÁLIDOS.")
+
+
+def update(request, id):
+    person = get_object_or_404(Pessoa, id=id)
+
+    form = None
+
+    if request.method == "GET":
+        form = PersonForm(instance=person)
+
+    elif request.method == "POST":
+        form = PersonForm(request.POST ,instance=person)
+
+        if form.is_valid():
+            form.save()
+            return redirect ("relacionamentos:funcao_person_list")
+
+    contexto = {"formulario": form, "pessoa": person}
+
+    return render(request, "person/update.html", contexto)
