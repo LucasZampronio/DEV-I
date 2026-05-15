@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <h1>Resultados da Busca</h1>
+{% endblock title %}
+
+{% block content %}
+
+    {% if resultados %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for modelo, objetos in resultados.items %}
+            
+                {% for link, objeto in objetos %}
+
+                    <tr>
+                        <td> <a href="{{ link }}"> {{ modelo }} </a></td>
+                        <td> <a href="{{ link }}"> {{ objeto }} </a></td>        
+                    </tr>
+                {% endfor %}
+
+            {% endfor %}
+            </tbody>        
+
+        </table>
+    {% else %}
+
+        <h2>Nenhum resultado encontrado para {{ query }}</h2>
+
+    {% endif %}
+
+{% endblock content %}

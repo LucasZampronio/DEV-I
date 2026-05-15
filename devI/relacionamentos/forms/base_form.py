@@ -1,5 +1,10 @@
 from django.forms import ModelForm
 
+# A classe ModelForm serve quando necessitamos de persistência de dados...
+
+# A classe Form é utilizada para criar formulários, sem necessariamente ter a necessidade de persistir esses dados em um banco de dados.
+
+
 
 class BaseForm(ModelForm):
     def __init__(self, *args, **kargs):
