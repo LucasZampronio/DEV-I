@@ -54,8 +54,41 @@
         </li>
 
       </ul>
+
+      {% if user.is_authenticated %}
+      <div>
+        {{user.username}}
+
+        <a class="btn btn-outline-info" role="button">
+          <i class="bi bi-person"></i>
+
+        </a>
+
+      </div>
+      <div class="me-2"></div>
+      <div>
+        <form id="logout" action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+
+          <button type="submit" class="btn btn-outline-danger" form="logout"><i
+              class="bi bi-box-arrow-in-left"></i></button>
+
+        </form>
+      </div>
+
+      {% else %}
+      <div>
+        <a class="btn btn-outline-pimary" role="button" href="{% url 'login' %}"><i
+            class="bi bi-box-arrow-in-right"></i></a>
+        Deslogado
+      </div>
+      {% endif %}
+
+      <div class="me-2"></div>
+
       <form class="d-flex" role="search" action="{% url 'buscar' %}" method="get">
         <input name="query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

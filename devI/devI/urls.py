@@ -23,6 +23,8 @@ from .views.contato import ContatoView
 from .views.buscar import BuscarView
 from django.contrib.auth import views as auth_views
 
+from .views.perfil import PerfilView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("inicial/", include("basico.urls", namespace="")),
@@ -39,5 +41,7 @@ urlpatterns = [
         template_name = "contas/login.html",
     )),
 
-    path("contas/", include('django.contrib.auth.urls'))
+    path("contas/", include('django.contrib.auth.urls')),
+
+    path("contas/perfil", PerfilView.as_view(), name='profile')
 ]
