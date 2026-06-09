@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import *
 
 app_name = "relacionamentos"
@@ -40,5 +40,6 @@ urlpatterns = [
     path("passaporte/classe_generica/create",PassportCreateGenericView.as_view(), name= "classe_generica_passaporte_create"),
     path("passaporte/classe_generica/read/<int:pk>",PassportReadGenericView.as_view(), name= "classe_generica_passaporte_read"),
     path("passaporte/classe_generica/delete/<int:pk>",PassportDeleteGenericView.as_view(), name= "classe_generica_passaporte_delete"),
-    
+
+    path('ws/', include('webservice.urls')),
 ]
