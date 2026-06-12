@@ -12,8 +12,8 @@ def saudacao(request):
 # ws usando classes
 
 class Saudacao(APIView):
-    def get(self,request):
+    def get(self, request):
         resposta = {
-            'mensagem': 'Boanoite, sou a resposta da classe!'
+            'mensagem': 'Boa noite, sou a resposta da classe!'
         }
         return Response(resposta)
