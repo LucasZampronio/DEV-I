@@ -32,6 +32,7 @@ urlpatterns = [
     path(
         "relacionamentos/", include("relacionamentos.urls", namespace="relacionamentos")
     ),
+    path('relacionamentos/ws/', include('webservice.urls')),
     path("contato/classe", ContatoView.as_view(), name="contato_classe"),
     path('buscar/classe/', BuscarView.as_view(), name='buscar'),
 
