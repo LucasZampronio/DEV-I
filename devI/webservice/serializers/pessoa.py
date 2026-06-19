@@ -7,21 +7,25 @@ from django.core.exceptions import ValidationError
 
 class PersonMinimalSerializer(serializers.ModelSerializer):
 
-    def validate(self, attrs):
-
-        instancia = Pessoa(**attrs)
-        
-        try:
-            instancia.full_clean()
-
-        except ValidationError as errors:
-            raise serializers.ValidationError(errors)
-
-        return attrs
-    
     class Meta:
         model = Pessoa
-        fields = ["id", "nome"]
+        fields = ["id", "nome", "data_nascimento", "cpf"]
+
+        def validate(self, attrs):
+
+            instancia = self.Meta.model(**attrs)
+            
+            try:
+                instancia.full_clean()
+
+            except ValidationError as errors:
+                raise serializers.ValidationError(errors)
+
+            return attrs
+        
+        class Meta:
+            model = Pessoa
+            fields = ["id", "nome"]
 
 
 class PersonCompleteSerializer(serializers.ModelSerializer):

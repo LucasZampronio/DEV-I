@@ -3,3 +3,4 @@ from .saudacao import *
 from .calculo import *
 from .temperatura import *
 from .pessoa import *
+from .reporter import *

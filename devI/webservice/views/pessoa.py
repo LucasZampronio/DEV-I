@@ -3,8 +3,8 @@ from relacionamentos.models import Pessoa
 from webservice.serializers import (
     PersonMinimalSerializer,
     PersonCompleteSerializer,
-    PersonService,
 )
+
 from django.shortcuts import get_object_or_404
 
 
