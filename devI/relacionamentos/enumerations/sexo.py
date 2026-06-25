@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Sexo(models.TextChoices):
-    MASCULINO = 'M', 'Masculino'
-    FEMININO = 'F', 'Feminino'
+    MASCULINO = "M", "Masculino"
+    FEMININO = "F", "Feminino"

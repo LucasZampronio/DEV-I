@@ -1,6 +1,6 @@
 from django.db import models
 
-class Nivel(models.IntegerChoices):
+class Nivel(models.TextChoices):
     UM = 1
     DOIS = 2
     TRES = 3

@@ -36,7 +36,8 @@ urlpatterns = [
     path("contato/classe", ContatoView.as_view(), name="contato_classe"),
     path('buscar/classe/', BuscarView.as_view(), name='buscar'),
 
-    # # É PRECISO CRIAR AS VIEWS ACIMA DA URL CONTAS, COMO O DJANGO JÁ POSSUI TODAS AS URLS RELACIONADAS À AUTENTICAÇÃO PRONTAS,
+    # É PRECISO CRIAR AS VIEWS ACIMA DA URL CONTAS, COMO O DJANGO JÁ 
+    # POSSUI TODAS AS URLS RELACIONADAS À AUTENTICAÇÃO PRONTAS,
     
     path("contas/login/", auth_views.LoginView.as_view(
         template_name = "contas/login.html",

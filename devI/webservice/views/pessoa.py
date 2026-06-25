@@ -23,7 +23,7 @@ class PessoaSimpleService(APIView):
 
 class PersonService(APIView):
 
-    serializer_clas = PersonCompleteSerializer
+    serializer_class = PersonCompleteSerializer
     queryser = Pessoa.objects.all()
 
     def get(self, request, pk):

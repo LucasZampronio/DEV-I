@@ -27,7 +27,7 @@ class Matricula(BaseModel):
         max_length=20,
         help_text='Digite o status da matrícula do aluno na disciplina',
         default=Status.MATRICULADO,
-        choices=Status
+        choices=Status.choices
     )
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, help_text='Selecione o aluno para a matrícula')
 
